@@ -19,12 +19,6 @@ public class Graph
         _pointToCoord = new Dictionary<int, Dictionary<int, Point>>();
     }
 
-    //TODO: optimise?
-    public IEnumerable<Joint> GetJoints(Point point)
-    {
-        return _joints.Where(x => x.Point1.Equals(point) || x.Point2.Equals(point));
-    }
-
     public bool TryGetPoint(int x, int y, out Point point)
     {
         point = new Point();
@@ -34,6 +28,11 @@ public class Graph
     public bool DoHaveJointWith(Point x, Point y)
     {
         return _jointsToPoint.ContainsKey(x) && _jointsToPoint[x].ContainsKey(y);
+    }
+    
+    public IEnumerable<Joint> GetJoints(Point point)
+    {
+        return _joints.Where(x => x.Point1.Equals(point) || x.Point2.Equals(point));
     }
 
     public bool AddPoint(Point point)

@@ -51,7 +51,7 @@ public sealed partial class MapManager : MonoBehaviour
     {
         var cellSize = 25;
 
-        var mask = MapCalculator.GetMask(cellSize, 0.1f, _sprite.texture);
+        var mask = MapCalculator.GetMask(cellSize, 0.2f, _sprite.texture);
         var graph = new FullMergedGraph(mask);
 
         var MST = MSTCalculator.GetMST(graph);
